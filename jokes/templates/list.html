@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}My Blog{% endblock %}
+{% block content %}
+  <section class="section pb-0">
+   <div class="container">
+      <h2 class="section-title">Short fun stories of the week</h2>
+      <div class="columns masonry-wrapper">
+         <!-- faq item -->
+         {% for post in posts %}
+         <div class="column is-6-desktop">
+            <div class="card card-lg">
+               <div class="card-body">
+                  <h3 class="card-body h5">{{ post.title }}</h3>
+                  <p class="card-text content">{{ post.body|linebreaks }}</p>
+                  <h4 class="card-text h6">Published by {{ post.author }} on {{ post.publish }}</h4>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+         {% include "pagination.html" with page=page_obj %}
+
+{% endblock %}

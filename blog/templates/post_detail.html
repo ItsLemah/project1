@@ -1,0 +1,8 @@
+{% extends 'index.html' %} {% block content %}
+       <div class="column is-6-desktop">
+            <div class="card card-lg">
+               <div class="card-body">
+                  <h3 class="card-title h5">{{ post.title }}</h3>
+                  <h4 class="card-title h5">{{ post.author }} | {{ post.created_on }}</h4>
+                  <p class="card-text content">{{ post.content | safe }}</p>
+ {% endblock %}

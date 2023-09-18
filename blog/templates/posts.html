@@ -1,0 +1,10 @@
+{% extends 'index.html' %} {% block content %}
+{% for author, title, content, created_on in all_cont %}
+       <div class="column is-6-desktop">
+            <div class="card card-lg">
+               <div class="card-body">
+                  <h3 class="card-title h5">{{ title }}</h3>
+                  <h4 class="card-title h5">{{ author }} | {{ created_on }}</h4>
+                  <p class="card-text content">{{ content | safe }}</p>
+{% endfor %} 
+ {% endblock %}

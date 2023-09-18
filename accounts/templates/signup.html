@@ -1,0 +1,49 @@
+{% extends "index.html" %} {% block content %} <section class="section">
+   <div class="container">
+      <div class="columns is-desktop is-justify-content-center">
+         <div class="column is-8-desktop">
+            <div class="p-6 shadow rounded content">
+               <h2 class="section-title">Sign Up</h2>
+               <form method="POST" action=".">
+                 {% csrf_token %} 
+                  <div class="columns is-multiline">
+                     <div class="form-group column is-6-desktop">
+                        <label for="username">User Name</label>
+                        <input type="text" class="input" id="fname" name="username" placeholder="Your Username"
+                           required>
+                     </div>
+                    
+                     
+                     <div class="form-group column is-12">
+                        <label for="password1">Enter Password</label>
+                        <input type="password" class="input" id="email" name="password1" placeholder="Your Password"
+                           required>
+                     </div>
+                     
+                     <div class="form-group column is-12">
+                        <label for="password2">Re-enter Password</label>
+                        <input type="password" class="input" id="email" name="password2" placeholder="Re-enter your password"
+                           required>
+                     </div>
+                     
+                     {% if form.errors %} 
+                     {% for field in form %} 
+                     {% for error in field.errors %} 
+                     
+                     <div class="column is-12">
+                       <p>{{ error|escape }}</p>
+                     </div>
+                     {% endfor %} 
+                     {% endfor %} 
+                     {% endif} 
+                     <div class="column is-12">
+                        <button type="submit" class="btn btn-primary">Send</button>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+{% endblock %}
